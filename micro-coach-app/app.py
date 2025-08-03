@@ -4,14 +4,19 @@ import streamlit as st
 from coach_engine import get_advice
 
 st.set_page_config(page_title="🧠 Micro-Coach", layout="centered")
-st.title("🧠 Micro-Coach: One-Sentence Habit Trainer")
-st.subheader("Enter your goal or struggle — get 1 sentence of smart advice.")
+st.markdown("<h1 style='text-align: center;'>🧠 Micro-Coach</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 18px;'>Your daily dose of human-like habit wisdom — in one clean sentence.</p>", unsafe_allow_html=True)
+st.divider()
 
-user_input = st.text_input("💬 What's your current goal or struggle?")
+user_input = st.text_area("💬 What's something you're trying to fix, build, or improve?", height=100)
+
 
 if user_input:
     advice = get_advice(user_input)
-    st.markdown(f"### 🗣️ Advice:\n> {advice}")
+    st.markdown(f"<div style='background-color:#f1f1f1; padding: 15px; border-radius: 10px; font-size:18px;'>🗣️ <b>Coach says:</b><br><i>“{advice}”</i></div>", unsafe_allow_html=True)
 
-    if st.button("🔁 Another Tip"):
-        st.markdown(f"> {get_advice(user_input)}")
+    if st.button("🔁 Give me another take"):
+        st.markdown(f"<div style='background-color:#fff6e0; padding: 15px; border-radius: 10px; font-size:18px;'>🗣️ <b>Another thought:</b><br><i>“{get_advice(user_input)}”</i></div>", unsafe_allow_html=True)
+
+        st.markdown("<hr style='margin-top: 30px;'>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 13px;'>Made with ❤️ by Muhammad Reyaan</p>", unsafe_allow_html=True)
