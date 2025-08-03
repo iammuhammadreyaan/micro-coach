@@ -23,15 +23,17 @@ if user_input:
     )
 
     if st.button("🔁 Give me another take"):
-        new_advice = get_advice(user_input)
-        st.markdown(
-            f"""
-            <div style='background-color:#fff6e0; padding: 15px; border-radius: 10px; font-size:18px;'>
-                🗣️ <b>Another thought:</b><br><i>“{new_advice}”</i>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+     new_advice = get_advice(user_input)
+    st.markdown(
+        f"""
+        <div style='background-color:#e8f0fe; padding: 15px; border-radius: 10px; margin-top: 15px;'>
+            <h4 style='color:#222;'>🗣️ Another take:</h4>
+            <p style='font-style: italic; color:#333;'>{new_advice}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 st.markdown("<hr style='margin-top: 30px;'>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-size: 13px;'>Made with ❤️ by Muhammad Reyaan</p>", unsafe_allow_html=True)
