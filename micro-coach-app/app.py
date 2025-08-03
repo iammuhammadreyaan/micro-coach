@@ -13,7 +13,14 @@ user_input = st.text_area("💬 What's something you're trying to fix, build, or
 
 if user_input:
     advice = get_advice(user_input)
-    st.markdown(f"<div style='background-color:#f1f1f1; padding: 15px; border-radius: 10px; font-size:18px;'>🗣️ <b>Coach says:</b><br><i>“{advice}”</i></div>", unsafe_allow_html=True)
+st.markdown(
+    f"""
+    <div style='background-color:#f0f0f0; padding: 15px; border-radius: 10px;'>
+        <h4 style='color:#333;'>💡 {advice}</h4>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     if st.button("🔁 Give me another take"):
         st.markdown(f"<div style='background-color:#fff6e0; padding: 15px; border-radius: 10px; font-size:18px;'>🗣️ <b>Another thought:</b><br><i>“{get_advice(user_input)}”</i></div>", unsafe_allow_html=True)
